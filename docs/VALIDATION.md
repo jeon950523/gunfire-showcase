@@ -12,9 +12,13 @@
 | Tactical Search | 중단/재개가 Reveal 진행을 보존하고 reroll이 되지 않는가 |
 | Backpack / Carry | Grid, 회전, 무게, 장착 슬롯 제약이 일관되는가 |
 | Loot Ownership | 전리품, 사망 캐시, 이동/회수 책임이 중복되지 않는가 |
-| Weapon Progression | 파츠, Precision, Completion, Tier 승급 선택이 한 무기에 귀속되는가 |
+| Weapon Progression | Part Grade, Core Grade Average, Weapon Tier와 승급 선택의 책임이 분리되는가 |
 | Gunsmith | 호환성·Preview·Commit과 시각 반영이 같은 작업 흐름으로 닫히는가 |
 | Combat | 관통 규칙, 총격 방향, Recoil/Bloom, 엄폐와 공간 전술이 분리된 책임으로 작동하는가 |
+
+## Current Authority Note
+
+공개 검증 기준은 [GAME_DESIGN_SSOT_PUBLIC.md](GAME_DESIGN_SSOT_PUBLIC.md)의 현재 구현/진행 상태를 따릅니다. P4.0 Police Station은 Functional Integration을 유지하되 Camera Comfort 관련 User Play Correction이 열린 상태입니다.
 
 ## Police Station Evidence Boundary
 
