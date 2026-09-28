@@ -7,8 +7,8 @@
 | 구분 | 상태 |
 | --- | --- |
 | 핵심 시스템 | **구현 및 검증** — Broad Tactical Depth, Tactical Search, Weapon Platform, Gunsmith, Inventory, Armor/Ammo 규칙 |
-| 수직 슬라이스 | **구현 및 검증** — Police Station 탐사 공간에서 전투·수색·루팅·인벤토리·무기 조립 흐름 연결 |
-| 프레젠테이션 | **폴리싱 중** — UI 정리, 총격/피격/Loot 피드백, 환경 밀도, 캐릭터·총기 표현, 오디오 훅 |
+| 수직 슬라이스 | **Functional Integration PASS / User Play Correction OPEN** — Police Station에서 전투·수색·루팅·인벤토리·무기 조립·Extraction 흐름 연결, Player-centered Camera / Transition Comfort 교정 중 |
+| 프레젠테이션 | **Final Art HOLD** — Camera Comfort 재검증 후 UI·환경·오디오 폴리싱 진행 |
 | 캡처 자료 | **Capture Pending** — 공개 가능 범위를 개별 확인한 뒤 GIF·스크린샷을 추가 예정 |
 
 ## Core Loop
@@ -35,12 +35,13 @@ Side View의 캐릭터·총기 실루엣을 유지하면서 World X/Y를 실제 
 
 컨테이너를 클릭하는 즉시 Loot 전부가 공개되지 않습니다. 수색 중에도 위험은 계속되고, 아이템은 순차적으로 발견됩니다. 이동·사격·피격·취소로 수색을 멈출 수 있으며, 중단은 Loot 재추첨 수단이 되지 않습니다. Search 자체가 시간과 안전을 저울질하는 Gameplay입니다.
 
-### 3. Weapon Platform · Part Precision · Tier
+### 3. Weapon Platform · Part Grade · Tier
 
 - 플랫폼은 고유 운용 정체성을 유지합니다.
-- 각 파츠는 **Precision 1–100**을 갖습니다. 높은 Precision은 파츠의 원래 역할을 정교하게 만들지만, 역할의 Trade-off를 없애지 않습니다.
-- **Precision ≠ Rarity**: 총의 Tier 1–5는 드랍 색상이 아니라 조립·조율 완성도입니다.
-- 승급 시 세 가지 방향 중 하나를 고르고, 선택은 해당 무기에 귀속됩니다.
+- 각 PartInstance는 **Grade 1–5**를 가지며, Grade는 Rarity가 아니라 같은 Part Identity 내부의 완성 품질입니다.
+- G1→G5 Upgrade는 실패·하락·파괴 없이 한 단계씩 결정적으로 진행합니다.
+- Required Core의 Grade 평균에서 Weapon Tier 1–5가 파생되며, Weapon Tier는 드랍 색상이 아니라 현재 조립 완성 단계입니다.
+- 승급 시 세 가지 방향 중 하나를 고르고, 선택은 해당 Weapon Instance에 귀속됩니다.
 - Platform Mastery와 Ammo Tier는 별도 성장 축으로 유지됩니다.
 
 ### 4. Gunsmith
@@ -75,7 +76,7 @@ Room / Door / Transition
 → Weapon Assembly / Gunsmith
 ```
 
-기능별 Validation은 Broad Tactical Depth, Armor Protection, Carry Weight, Backpack Grid, Loot Ownership/Death Cache, Part Upgrade, Gun Feel, Gunsmith, Weapon Production Closeout을 회귀 확인 범위로 둡니다. 공개본은 내부 테스트 코드나 전체 검증 로그가 아니라, 어떤 행동 경계가 검증 대상인지에 집중합니다.
+기능별 Validation은 Broad Tactical Depth, Armor Protection, Carry Weight, Backpack Grid, Loot Ownership/Death Cache, Part Grade Upgrade, Gun Feel, Gunsmith, Weapon Production Closeout을 회귀 확인 범위로 둡니다. 공개본은 내부 테스트 코드나 전체 검증 로그가 아니라, 어떤 행동 경계가 검증 대상인지에 집중합니다.
 
 ## Media | Capture Pending
 
@@ -95,6 +96,6 @@ Room / Door / Transition
 - 포함: 시스템 의도, 플레이 흐름, 구현·검증 경계, 공개 승인된 미디어
 - 제외: Unity 프로젝트 전체, 실제 C# 소스 전체, 전체 설계 정본, 내부 운영/인계 문서, 작업 로그, 비공개 자산 및 민감정보
 
-자세한 설계 요약은 [docs](docs/)에서 확인할 수 있습니다.
+전체 기획의 공개 상위 기준은 [Public Game Design SSOT](docs/GAME_DESIGN_SSOT_PUBLIC.md)에서 확인할 수 있습니다. 세부 시스템 문서는 [docs](docs/)에 정리합니다.
 
 
